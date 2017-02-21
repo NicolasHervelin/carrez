@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Good deal checker</title>
+    <meta charset="utf-8" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="strylesheet">
+    <link href="carrez.css" rel="stylesheet">
+  </head>
+  <body>
+    <center>
+      <div class="centerBlock1">
+        <form action="http://localhost:3000" method="get" name="scrap">
+          <div id="leboncoin">
+            <label class="subtitle">Selected bid</label>
+            <div class="centerBlock2">
+              <div class="form-group">
+                <label>URL</label>
+                <input class="url_input" type="text" placeholder="http://"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button id="compute" type="submit">Compute</button>
+          </div>
+        </form>
+      </div>
+      <div class="centerBlock3">
+        <div id="check">
+          <label class="subtitle">Good deal ?</label>
+          <label class="responseDeal" name="isGood">
+            <script type="text/javascript" src="index.js">
+              if(document.forms["scrap"].elements["url_input"] != ""){
+                var urlLeBoncoin = document.forms["scrap"].elements["url_input"];
+                leboncoin.scrapLeboncoinJSON(urlLeBoncoin);
+                var city = leboncoin.getCityLBC();
+
+                var urlMeilleursAgents = 'https://www.meilleursagents.com/prix-immobilier/' + city +'/';
+                meilleursagents.scrapMeilleursAgentsJSON(urlMeilleursAgents);
+
+                var isGoodDeal = isGoodDeal();
+
+                isGood.innerHTML=isGoodDeal;
+              }
+            </script>
+          </label>
+        </div>
+      </div>
+    </center>
+  </body>
+</html>
