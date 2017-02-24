@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Good deal checker</title>
+    <meta charset="utf-8" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="strylesheet">
+    <link href="carrez.css" rel="stylesheet">
+  </head>
+  <body>
+    <center>
+      <div class="centerBlock1">
+        <form action="/" method="POST">
+          <div id="leboncoin">
+            <label class="subtitle">Selected bid</label>
+            <div class="centerBlock2">
+              <div class="form-group">
+                <label>URL</label>
+                <input class="url_input" type="text" placeholder="http://" name="urlInput"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button id="compute" type="submit">Compute</button>
+          </div>
+        </form>
+      </div>
+      <% if (locals.goodDeal) { %>
+        <div class="centerBlock3">
+          <div id="check">
+            <label class="subtitle"></label>
+            <div class="centerBlock2">
+              <label class="responseDeal" name="isGood">
+                  <%= goodDeal %>
+              </label>
+            </div>
+          </div>
+        </div>
+      <%} %>
+    </center>
+  </body>
+</html>
